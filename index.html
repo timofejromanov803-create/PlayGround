@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080b15">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23080b15%22/><path d=%22M16 3 28 16 16 29 4 16z%22 fill=%22none%22 stroke=%22%237fffe0%22 stroke-width=%223%22/><circle cx=%2216%22 cy=%2216%22 r=%223%22 fill=%22%237fffe0%22/></svg>">
+  <title>ULTITANKIST_RUT — The Last Loop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="The Last Loop home"><span class="brand-mark">◈</span> AFTERLIGHT <span class="brand-divider">/</span> <span class="brand-sub">A GAME BY NO ONE</span></a>
+      <div class="top-meta"><span class="live-dot"></span> FIELD LOG <span id="top-world">NO SIGNAL</span></div>
+      <button class="sound-toggle" id="sound-toggle" aria-label="Toggle sound">♫ <span>SOUND OFF</span></button>
+    </header>
+
+    <section class="game-frame" aria-label="The Last Loop game">
+      <canvas id="game" width="960" height="600" aria-label="Game arena"></canvas>
+      <div class="scanlines"></div>
+
+      <section class="screen start-screen" id="start-screen">
+        <div class="start-copy">
+          <div class="eyebrow"><span>TRANSMISSION 001</span><span class="eyebrow-line"></span><span>THE LAST LOOP</span></div>
+          <h1>THE WORLD<br>IS <em>OUT OF</em><br>ORDER<span class="title-dot">.</span></h1>
+          <p class="intro">Four worlds. Four fragments. One impossible machine at the end of everything.</p>
+          <button class="primary-button" id="start-button"><span>BEGIN YOUR RUN</span><b>↗</b></button>
+          <div class="start-hint">WASD / ARROWS TO MOVE <i>·</i> SPACE TO STRIKE <i>·</i> SHIFT TO DASH</div>
+        </div>
+        <div class="start-side">
+          <div class="signal-card"><span class="card-label">UNKNOWN ENTITY</span><strong>ULTITANKIST_<br>RUT</strong><span class="card-status"><i></i> SIGNAL DETECTED</span><div class="entity-glyph">◉</div></div>
+          <div class="relic-card"><span class="card-label">ANCIENT ARTIFACT</span><div class="relic-shards"><b>◇</b><b>◇</b><b>◇</b><b>◇</b></div><span>4 FRAGMENTS REMAIN</span></div>
+        </div>
+      </section>
+
+      <section class="screen pause-screen hidden" id="pause-screen">
+        <div class="pause-panel"><span class="eyebrow">FIELD LOG // PAUSED</span><h2>Catch your breath.</h2><p>The loop will wait for no one. Except, apparently, you.</p><button class="primary-button" id="resume-button"><span>BACK TO IT</span><b>↗</b></button><button class="text-button" id="restart-button">RESTART RUN</button></div>
+      </section>
+
+      <section class="screen end-screen hidden" id="end-screen">
+        <div class="end-content" id="end-content"></div>
+      </section>
+
+      <div class="hud hidden" id="hud">
+        <div class="hud-top">
+          <div class="world-label"><span class="world-index" id="world-index">01</span><div><span class="micro-label">CURRENT SECTOR</span><strong id="world-name">ABANDONED CITY</strong></div></div>
+          <div class="objective"><span class="micro-label">PRIMARY DIRECTIVE</span><strong id="objective-text">Find the keys</strong><span class="objective-progress" id="objective-progress"></span></div>
+          <div class="health-block"><span class="micro-label">VITALS</span><div id="hearts" class="hearts"></div></div>
+        </div>
+        <div class="hud-bottom">
+          <div class="relic-status"><span class="relic-icon">◇</span><span id="relic-count">0 / 4</span><span class="micro-label">RELIC</span><div id="relic-pips" class="relic-pips"><i></i><i></i><i></i><i></i></div></div>
+          <div class="boss-bar hidden" id="boss-bar"><div class="boss-heading"><span>ULTITANKIST_RUT</span><b id="boss-phase">NORMAL FORM</b></div><div class="boss-track"><i id="boss-health"></i></div></div>
+          <div class="controls-hint"><kbd>SPACE</kbd> STRIKE <kbd>SHIFT</kbd> DASH <kbd>ESC</kbd> PAUSE</div>
+        </div>
+        <div class="toast hidden" id="toast"></div>
+      </div>
+
+      <div class="mobile-controls hidden" id="mobile-controls">
+        <div class="dpad"><button data-dir="up" aria-label="Move up">▲</button><div><button data-dir="left" aria-label="Move left">◀</button><button data-dir="down" aria-label="Move down">▼</button><button data-dir="right" aria-label="Move right">▶</button></div></div>
+        <div class="action-pad"><button id="mobile-dash">DASH</button><button id="mobile-attack">✦</button></div>
+      </div>
+    </section>
+    <footer class="footer"><span>AN ORIGINAL ARCADE ADVENTURE</span><span>MOVE THROUGH THE STATIC <b>✳</b></span><span>© LOOP DIVISION / 20XX</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
