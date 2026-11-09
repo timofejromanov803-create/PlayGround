@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#070b13" />
+  <title>ULTITANKIST_RUT — THE LAST SIGNAL</title>
+  <link rel="preload" href="/assets/fonts/orbitron.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="game-shell">
+    <canvas id="game"></canvas>
+    <div class="vignette"></div>
+    <header id="topbar" class="hud hidden">
+      <div class="brand-mark"><span class="brand-dot"></span><span>RUT // SIGNAL LOST</span></div>
+      <div class="world-readout"><span class="eyebrow">SECTOR <b id="world-number">01</b></span><span id="world-name">ABANDONED CITY</span></div>
+      <div class="artifact-readout"><span class="eyebrow">ANCIENT RELIC</span><div id="artifact-slots"><i></i><i></i><i></i><i></i></div></div>
+    </header>
+    <section id="mission" class="mission hud hidden">
+      <div class="mission-icon">⌖</div><div><span class="eyebrow">ACTIVE DIRECTIVE</span><p id="objective">Find the keys</p><small id="objective-count">0 / 3</small></div>
+    </section>
+    <div id="health-panel" class="health-panel hud hidden"><span class="eyebrow">VITALS</span><div class="health-track"><div id="health-fill"></div></div><b id="health-label">100</b></div>
+    <div id="boss-panel" class="boss-panel hidden"><div class="boss-name"><span>THREAT DETECTED</span><b>ULTITANKIST_RUT</b><em id="boss-phase">PHASE I — NORMAL FORM</em></div><div class="boss-track"><div id="boss-health"></div></div></div>
+    <div id="crosshair" class="crosshair hidden"><i></i><b></b><i></i><em></em></div>
+    <div id="toast" class="toast"></div>
+    <div id="hit-flash" class="hit-flash"></div>
+    <div id="hurt-flash" class="hurt-flash"></div>
+    <div id="prompt" class="prompt hidden">[ E ] <span>INTERACT</span></div>
+    <div id="controls-hint" class="controls-hint hud hidden">WASD MOVE <i>·</i> MOUSE AIM <i>·</i> CLICK FIRE <i>·</i> SPACE DASH <i>·</i> ESC PAUSE</div>
+    <div id="touch-controls" class="touch-controls hidden"><div class="move-pad"><button data-move="forward">▲</button><div><button data-move="left">◀</button><button data-move="back">▼</button><button data-move="right">▶</button></div></div><button id="touch-fire" class="fire-button">FIRE</button><button id="touch-dash" class="dash-button">DASH</button></div>
+
+    <div id="overlay" class="overlay">
+      <div class="overlay-grid"></div><div class="overlay-glow"></div>
+      <div class="overlay-content" id="overlay-content">
+        <div class="title-kicker"><span class="status-pip"></span> AN INTERDIMENSIONAL SIGNAL</div>
+        <h1>THE LAST<br><span>SIGNAL</span></h1>
+        <div class="title-rule"><i></i><span>ULTITANKIST_RUT</span><i></i></div>
+        <p class="title-copy">Five worlds. Four fragments. One impossible end.</p>
+        <button id="start-button" class="primary-button"><span>ENTER THE VOID</span><b>↗</b></button>
+        <div class="title-footer"><span>3D ACTION ADVENTURE</span><span>WASD / TOUCH TO MOVE</span><span>01 — 05</span></div>
+      </div>
+      <div class="overlay-bottom"><span>TRANSMISSION // 001</span><span>NO SIGNAL IS EVER TRULY LOST</span></div>
+    </div>
+  </div>
+  <script type="importmap">{"imports":{"three":"/vendor/three/three.module.js"}}</script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
