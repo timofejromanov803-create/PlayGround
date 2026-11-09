@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#070a14" />
+  <title>ULTITANKIST_RUT — The Last Loop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game"></canvas>
+    <div class="vignette"></div>
+    <div id="start-screen" class="screen visible">
+      <div class="title-mark"><span class="mark-icon">◈</span> AFTER THE END <span class="mark-line"></span> FIELD RECORD 05</div>
+      <div class="hero-copy">
+        <p class="eyebrow">A 3D ACTION ADVENTURE · FIVE WORLDS · ONE LAST BOSS</p>
+        <h1>THE LAST<br /><em>LOOP</em></h1>
+        <p class="intro">Four lost worlds. Four pieces of an ancient artifact.<br />One citadel that was never meant to be reached.</p>
+        <button id="start-button" class="primary-button">ENTER THE FRACTURE <span>↗</span></button>
+        <div class="control-note"><kbd>W A S D</kbd> MOVE <i>·</i> <kbd>CLICK</kbd> FIRE <i>·</i> <kbd>E</kbd> INTERACT <i>·</i> <kbd>SHIFT</kbd> DASH</div>
+      </div>
+      <div class="start-footer"><span>AN UNFINISHED WORLD</span><span>PRESS ENTER TO BEGIN</span></div>
+    </div>
+    <div id="hud" class="hud hidden">
+      <header class="topbar">
+        <div class="brand"><span class="brand-glyph">✳</span><span>AFTER THE END</span><small>FIELD RECORD 05</small></div>
+        <div class="world-label"><span class="live-dot"></span><span id="world-name">ABANDONED CITY</span><span class="world-index" id="world-index">01 / 05</span></div>
+        <div class="artifact-counter"><span class="artifact-symbol">◇</span><span>ANCIENT SEAL</span><strong id="artifact-count">00 <small>/ 04</small></strong></div>
+      </header>
+      <section class="mission-card">
+        <div class="mission-kicker"><span>ACTIVE OBJECTIVE</span><span class="mission-number">// <b id="mission-num">01</b></span></div>
+        <div id="mission-title" class="mission-title">Find the three city keys</div>
+        <div class="mission-progress"><div class="progress-track"><div id="mission-progress" class="progress-fill"></div></div><span id="progress-label">0 / 3</span></div>
+      </section>
+      <div class="threat-card"><span class="threat-icon">⌁</span><span id="threat-text">SIGNAL TRACE DETECTED</span><span class="threat-line"></span></div>
+      <div class="bottom-left">
+        <div class="health-row"><span>VITALS</span><span id="health-value">100%</span></div>
+        <div class="health-track"><div id="health-fill"></div></div>
+        <div class="dash-row"><span class="dash-dot"></span><span id="dash-status">DASH READY</span></div>
+      </div>
+      <div id="boss-hud" class="boss-hud hidden"><div class="boss-label"><span>HOSTILE SIGNATURE</span><strong id="boss-phase">ULTITANKIST_RUT</strong></div><div class="boss-track"><div id="boss-fill"></div></div><div class="boss-phase-label" id="boss-phase-label">NORMAL FORM</div></div>
+      <div id="interact-prompt" class="interact-prompt hidden"><kbd>E</kbd><span>INTERACT</span></div>
+      <div class="crosshair"><i></i><b></b><i></i><b></b><i></i></div>
+      <div class="toast" id="toast"></div>
+      <div class="boss-dialogue hidden" id="boss-dialogue"><span class="dialogue-line"></span><p id="dialogue-text"></p><span class="dialogue-signature">— ULTITANKIST_RUT</span></div>
+      <footer class="bottom-bar"><span id="location-label">SECTOR 01 · OUTER RING</span><span><kbd>W A S D</kbd> MOVE <i>·</i> <kbd>CLICK</kbd> FIRE <i>·</i> <kbd>E</kbd> INTERACT <i>·</i> <kbd>SHIFT</kbd> DASH</span><span id="fps-label">SYSTEMS NOMINAL</span></footer>
+      <div class="mobile-controls"><button id="mobile-fire">FIRE</button><button id="mobile-use">USE</button><button id="mobile-dash">DASH</button><div class="stick" id="stick"><span></span></div></div>
+    </div>
+    <div class="screen end-screen" id="end-screen">
+      <p class="eyebrow">CITADEL SIGNAL LOST · END OF TRANSMISSION</p>
+      <h2 id="end-title">THE LOOP IS BROKEN</h2>
+      <p id="end-copy">The citadel falls silent. The worlds can finally breathe.</p>
+      <div class="ending-seal">◈</div>
+      <button id="replay-button" class="primary-button">PLAY AGAIN <span>↗</span></button>
+      <p class="credits-line">AN UNFINISHED WORLD <span>·</span> THANK YOU FOR PLAYING</p>
+    </div>
+  </main>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
